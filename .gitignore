@@ -50,8 +50,11 @@ coverage.xml
 # Django stuff:
 *.log
 
+<<<<<<< HEAD
 staticfiles
 
+=======
+>>>>>>> 5af5ed0a2cb76031a68c8b5ecc4bc69c5982277c
 # Sphinx documentation
 docs/_build/
 
