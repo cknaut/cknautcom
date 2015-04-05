@@ -4,30 +4,15 @@ from random import randint
 import json
 import urllib2
 
-#Advice API
-ADVICEURL = 'http://api.adviceslip.com/advice'
-
 def index(request):
-    random_color, font_color = get_random_hex_code()
-    context = {'random_color' : random_color, 'font_color' : font_color, 'advice' : get_advice}
+    context = {'fortune' : get_fortune}
     return render(request, 'landingpage/base.html', context) 
-
-#Generating random color hex-code and fitting contrast color (b/w)
-def get_random_hex_code():
-    r = lambda: randint(0,255)
-    R = r()
-    G = r()
-    B = r()
-    random_color = '#%02X%02X%02X' % (R,G,B)
-    #assiging correct font color (black or white) 
-    if (R+G+B)/3.0 < 128:
-        return(random_color, "#FFFFFF")
-    else:
-        return(random_color, "#000000")
-        
-#Gettin random advice from advice API
-def get_advice():
-    response = urllib2.urlopen(ADVICEURL)
-    advice_json = json.loads(response.read())
-    return advice_json["slip"]["advice"]
+       
+#Gettin random fortune from fortune API
+def get_fortune():
+    response = urllib2.urlopen("http://www.iheartquotes.com/api/v1/random?format=json&max_characters=150&width=60&source=esr+humorix_misc+humorix_stories+joel_on_software+macintosh+math+mav_flame+osp_rules+paul_graham+prog_style+subversion+1811_dictionary_of_the_vulgar_tonguecodehappy+fortune+liberty+literature+misc%20murphy+oneliners+riddles+rkba+shlomif+shlomif_fav+calvin+simpsons_cbg+simpsons_chalkboard+simpsons_homer+simpsons_ralph+south_park")
+    fortune_json = json.loads(response.read())
+    fortune = fortune_json["quote"].replace("\t", "&nbsp&nbsp&nbsp&nbsp")
+    fortune = fortune.replace("\n", "<br />")
+    return fortune
 

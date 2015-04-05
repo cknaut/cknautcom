@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61403405-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>    
+    <head>
+    <title>Welcome to CKnaut.com</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    </head>
+    <body bgcolor="#000000">
+        <p class="small">      
+        </p>
+        <!--Fortune by http://www.iheartquotes.com/-->
+        <!--Font licence http://www.fontsquirrel.com/license/BlackJack-->
+        <center>  <h1> {{ fortune }}  </h2>
+
+    </body>
+</html>
+
+
+
+
