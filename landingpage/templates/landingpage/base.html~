@@ -25,7 +25,9 @@
 
         <div class="cover-container">
           <div class="inner cover">
+            {% autoescape off %}
             <p class="lead">{{fortune}}</p>
+            {% endautoescape %}
           </div>
 
           <div class="mastfoot">
