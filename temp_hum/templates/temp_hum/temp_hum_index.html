@@ -1,0 +1,30 @@
+{% extends "landingpage/base.html" %}
+{% load staticfiles %}
+
+
+{%block body%} 
+   
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+          <div class="inner cover">
+         Temperature: {{last_reading.temp}}  &deg C  </p>
+        Humidity: {{last_reading.hum}}  %
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Reading Timestamp: {{last_reading.created}}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+{%endblock%}
