@@ -13,8 +13,8 @@ def temp_index(request):
     data_readings = data_point.objects.all()
     last_reading = data_point.objects.latest()
     context = {'data_readings' : data_readings,
-                'last_reading' = last_reading}
-    return render(request, 'temp_hum/temp_hum_index.html', last_reading) 
+                'last_reading' : last_reading}
+    return render(request, 'temp_hum/temp_hum_index.html', context) 
 
 
    

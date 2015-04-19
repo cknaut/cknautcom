@@ -6,7 +6,7 @@ from django.http import HttpResponse
 def add_data(request, temp, hum):
     q =  data_point.objects.create(temp=temp, hum=hum)
     q.save
-    return HttpResponse('')
+    return HttpResponse('1')
 
 
 def temp_index(request):
