@@ -2,6 +2,36 @@
 {% load staticfiles %}
 
 
+{%block head%}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+   google.load('visualization', '1', {packages: ['corechart', 'line']});
+google.setOnLoadCallback(drawBackgroundColor);
+
+function drawBackgroundColor() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Dogs');
+
+      data.addRows{{data_temp|safe}};
+
+      var options = {
+        hAxis: {
+          title: 'Time'
+        },
+        vAxis: {
+          title: 'Popularity'
+        },
+        backgroundColor: '#f1f8e9'
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+{%endblock%} 
+
+
 {%block body%} 
    
 
@@ -12,12 +42,14 @@
         <div class="cover-container">
           <div class="inner cover">
          Temperature: {{last_reading.temp}}  &deg C  </p>
-        Humidity: {{last_reading.hum}}  %
+        Humidity: {{last_reading.hum}}  %  </p>
+         <div id="chart_div"><div>
           </div>
 
           <div class="mastfoot">
             <div class="inner">
               <p>Reading Timestamp: {{last_reading.created}}</p>
+                
             </div>
           </div>
 

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*- 
 from temp_hum.models import data_point
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -15,6 +14,3 @@ def temp_index(request):
     context = {'data_readings' : data_readings,
                 'last_reading' : last_reading}
     return render(request, 'temp_hum/temp_hum_index.html', context) 
-
-
-   

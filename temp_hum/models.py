@@ -1,4 +1,5 @@
 from django.db import models
+from gcharts import GChartsManager
 
 
 class data_point(models.Model):
@@ -10,6 +11,9 @@ class data_point(models.Model):
 
     #Timestamp
     created = models.DateTimeField(auto_now_add=True)
+
+    # register the GChartsManager as default manager for this model.
+    objects = GChartsManager()
 
     class Meta:
         get_latest_by = "created"
