@@ -1,15 +1,8 @@
-$(document).ready(function() {
-
-       alert("lol");
-
-});
-
-
-
-$('#update').click(function(){
-    var new_temp;
-     $.get('/temp/temp_ajax/', 
-    function(data){
-               alert("lol")(html(data));
-           });
-});
+function refresh_reading(){   
+    $.getJSON( "/temp/temp_ajax/", function( data ) {
+      $('#temp').html(data.temp);
+      $('#hum').html(data.hum);
+      $('#timestamp').html(data.timestamp);
+    });
+};
+setInterval(function () {refresh_reading()}, 60000);

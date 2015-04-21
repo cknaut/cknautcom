@@ -5,4 +5,4 @@ function refresh_reading(){
       $('#timestamp').html(data.timestamp);
     });
 };
-setInterval(function () {refresh_reading()}, 60000);
+setInterval(function () {refresh_reading()}, 1000);
