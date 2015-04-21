@@ -17,7 +17,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Reading Timestamp:  <span id="timestamp"> {{last_reading.created|date:"N j, Y, H:i:s"}} </span> </p>
+              <p>Reading Timestamp:  <span id="timestamp"> {{last_reading.created|date:"N j, Y, H:i:s" timezone:"Europe/Paris"}} </span> </p>
                 
             </div>
           </div>
@@ -31,16 +31,6 @@
 {%endblock%}
 
 {%block js%}
- <!--T<script type="text/javascript" src="{% static "temp_hum/temp_hum_ajax.js" %}"></script>-->
-<script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
-<script type="text/javascript">
-function refresh_reading(){   
-    $.getJSON( "/temp/temp_ajax/", function( data ) {
-      $('#temp').html(data.temp);
-      $('#hum').html(data.hum);
-      $('#timestamp').html(data.timestamp);
-    });
-};
-setInterval(function () {refresh_reading()}, 60000);
+<script type="text/javascript" src="{% static "temp_hum/temp_hum_ajax.js" %}"></script>
 </script>
 {%endblock%} 
