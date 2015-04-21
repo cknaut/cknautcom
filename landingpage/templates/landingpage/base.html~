@@ -23,6 +23,8 @@ ga('send', 'pageview');
 <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
    <link rel="stylesheet" href="{% static "landingpage/landingpage_stylesheet.css" %}" type="text/css" charset="utf-8" />
+    {%block head%}
+    {%endblock%}
   </head>
 
   <body>

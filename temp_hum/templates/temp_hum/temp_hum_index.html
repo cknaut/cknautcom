@@ -1,12 +1,6 @@
 {% extends "landingpage/base.html" %}
 {% load staticfiles %}
 
-
-{%block head%}
-  
-{%endblock%} 
-
-
 {%block body%} 
    
 
@@ -16,13 +10,14 @@
 
         <div class="cover-container">
           <div class="inner cover">
-         Temperature: {{last_reading.temp}}  &deg C  </p>
-        Humidity: {{last_reading.hum}}  %  </p>
+         <h3> Temperature: <span id="temp">  {{last_reading.temp}}  </span> &deg C  </p>
+        Humidity:  <span id="hum"> {{last_reading.hum}}  </span> %  </p>
+        </h3>
           </div>
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Reading Timestamp: {{last_reading.created}}</p>
+              <p>Reading Timestamp:  <span id="timestamp"> {{last_reading.created|date:"N j, Y, H:i:s"}} </span> </p>
                 
             </div>
           </div>
@@ -34,3 +29,8 @@
     </div>
 
 {%endblock%}
+
+{%block js%}
+<script type="text/javascript" src="{% static "temp_hum/temp_hum_ajax.js" %}"></script>
+</script>
+{%endblock%} 
