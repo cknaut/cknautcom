@@ -3,7 +3,7 @@
 
 #include "DHT.h"
 
-#define DHTPIN 2     // what pin we're connected to
+#define DHTPIN 4    // what pin we're connected to
 
 // Uncomment whatever type you're using!
 #define DHTTYPE DHT11   // DHT 11 
@@ -33,6 +33,10 @@ DHT dht(DHTPIN, DHTTYPE);
 #include <SPI.h>
 #include <Ethernet.h>
 #include <stdio.h>
+#include <Wire.h>
+#include "Adafruit_MCP9808.h"
+// Create the MCP9808 temperature sensor object
+Adafruit_MCP9808 tempsensor = Adafruit_MCP9808();
 
 
 // Enter a MAC address and IP address for your controller below.
@@ -52,31 +56,39 @@ void setup() {
   Serial.begin(9600); 
   // start the Ethernet connection and the server:
   Ethernet.begin(mac, ip);
-  Serial.println("DHTxx test!");
   dht.begin();
-  
-      
+    // Make sure the sensor is found, you can also pass in a different i2c
+  // address with tempsensor.begin(0x19) for example
+  if (!tempsensor.begin()) {
+    Serial.println("Couldn't find MCP9808!");
+    while (1);
+  }      
 }
 
 void loop() {
+  tempsensor.shutdown_wake(1); // shutdown MSP9808 - power consumption ~0.1 mikro Ampere    
   // Wait a 60 seconds between measurements.
-  delay(120000);
+  delay(50000);
+  
+  tempsensor.shutdown_wake(0); // wake up MSP9808 - power consumption ~200 mikro Ampere
 
-  // Reading temperature or humidity takes about 250 milliseconds!
+  // Reading humidity takes about 250 milliseconds!
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   float h = dht.readHumidity();
   // Read temperature as Celsius
-  float t = dht.readTemperature();
-  // Read temperature as Fahrenheit
-  float f = dht.readTemperature(true);
+  float t = tempsensor.readTempC();
   
   // Check if any reads failed and exit early (to try again).
-  if (isnan(h) || isnan(t) || isnan(f)) {
+  if (isnan(h)) {
     Serial.println("Failed to read from DHT sensor!");
     return;
   }
  
- 
+  // Check if any reads failed and exit early (to try again).
+  if (isnan(t)) {
+    Serial.println("Failed to read from Adafruit sensor!");
+    return;
+  }
  
  //conversion of temperatur to strings and creating of request
   char temp[3];
