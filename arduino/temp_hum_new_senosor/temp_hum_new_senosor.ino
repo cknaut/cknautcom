@@ -91,11 +91,11 @@ void loop() {
   }
  
  //conversion of temperatur to strings and creating of request
-  char temp[3];
+  char temp[5];
   char hum[3];
   String tempAsString;
   String humAsString;
-  dtostrf(t,1,0,temp);
+  dtostrf(t,1,2,temp);
   dtostrf(h,1,0,hum);
   tempAsString = String(temp);
   humAsString = String(hum);
