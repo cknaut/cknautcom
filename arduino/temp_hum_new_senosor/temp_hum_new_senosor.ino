@@ -66,11 +66,7 @@ void setup() {
 }
 
 void loop() {
-  tempsensor.shutdown_wake(1); // shutdown MSP9808 - power consumption ~0.1 mikro Ampere    
-  // Wait a 60 seconds between measurements.
-  delay(50000);
-  
-  tempsensor.shutdown_wake(0); // wake up MSP9808 - power consumption ~200 mikro Ampere
+   tempsensor.shutdown_wake(0); // wake up MSP9808 - power consumption ~200 mikro Ampere
 
   // Reading humidity takes about 250 milliseconds!
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
@@ -121,5 +117,10 @@ void loop() {
     Serial.println("connection failed");
   }
   client.stop(); 
- Serial.println("connection stopped"); 
+ Serial.println("connection stopped");
+ 
+ tempsensor.shutdown_wake(1); // shutdown MSP9808 - power consumption ~0.1 mikro Ampere    
+  // Wait a 60 seconds between measurements.
+  delay(30000);
+   
 }
