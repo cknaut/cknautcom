@@ -24,7 +24,7 @@ SECRET_KEY = 't_)3mffhg)g_zann2ovco4cdsdguam@@wx$7#sfc%eo6fl!wl-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 <<<<<<< HEAD
-DEBUG = Tru
+DEBUG = False
 =======
 DEBUG = False
 >>>>>>> 42230da02bfdb86a5b813099c01baaf6c98ca4f6
