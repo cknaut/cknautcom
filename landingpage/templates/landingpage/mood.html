@@ -23,26 +23,21 @@ ga('send', 'pageview');
 <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
    <link rel="stylesheet" href="{% static "landingpage/landingpage_stylesheet.css" %}" type="text/css" charset="utf-8" />
-    {%block head%}
-    {%endblock%}
   </head>
 
   <body>
-    {% block body %}
+
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
-          <div class="inner cover">
-            {% autoescape off %}
-            <p class="lead">{{fortune}}</p>
-            {% endautoescape %}
+          <div class="outer cover">
+               Berlin <span class="glyphicon glyphicon-fire"></span>
           </div>
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Random Quote by <a href="http://iheartquotes.com/">I <span class="glyphicon glyphicon-heart"></span> quotes</a></p>
             </div>
           </div>
 
@@ -52,16 +47,12 @@ ga('send', 'pageview');
 
     </div>
 
-
-  </body>
-{% endblock %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-    {%block js%}
-    {%endblock%}
+  </body>
 </html>
 
