@@ -1,0 +1,4 @@
+from django import forms
+
+class BibliographyForm(forms.Form):
+    Bibliography = forms.CharField(widget=forms.Textarea(attrs={'class' : 'bibliography_class'}))

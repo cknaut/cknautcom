@@ -1,0 +1,8 @@
+from django.conf.urls import patterns, url
+
+from citecheck import views
+
+urlpatterns = patterns('',
+    url(r'^$', views.citecheckt_index, name='citecheck_index'),
+    url(r'^submitted/', views.citecheckt_submitted)),
+)

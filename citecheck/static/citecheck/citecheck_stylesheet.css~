@@ -1,0 +1,6 @@
+.bibliography_class {
+    text-align: left;
+    color: #6E006E;
+    width: 70em;
+ margin-bottom: 1.5cm;
+}
