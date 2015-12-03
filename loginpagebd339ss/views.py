@@ -8,7 +8,7 @@ def login_url(request):
     if request.method == 'POST':
             password = request.POST['password']
             if password==pw:
-                return redirect ("http://31.24.12.49/")
+                return redirect ("Success")
     return render(request, 'landingpage/login.html')   
 
 
