@@ -5,7 +5,6 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'cknautcom.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^login/', include('loginpagebd339ss.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^citecheck/', include('citecheck.urls')),
     url(r'^', include('landingpage.urls')),
