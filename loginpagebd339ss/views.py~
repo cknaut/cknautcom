@@ -1,13 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth import login, authenticate, logout
 
+import os
+pw = os.environ.get('BD339SSPW')
 def login_url(request):
     if request.method == 'POST':
-            #percent-encoding
-      
-            username = request.POST['username']
             password = request.POST['password']
-            user = authenticate(username=username, password=password)
-            if user.is_active:
-                login(request, user)
+            if password==pw:
                 return HttpResponse ("Success")
     return render(request, 'landingpage/login.html')   

@@ -79,7 +79,7 @@
        
         
       <form class="form-signin " action="{% url 'login_url'  %}" method = "post" >
-        <h4 class="form-signin-heading">Welcome to BD339 Security Solutions</h4>
+        <h4 class="form-signin-heading">Welcome to BD339SS</h4>
         {% csrf_token %}
 
         
