@@ -1,0 +1,115 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Thesix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    
+     <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'assets/Bootstrap/js/jquery.js' %}"></script>
+    <script src="{% static 'assets/Bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/DataTables-1.9.4/media/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/DataTables-1.9.4/media/js/DT_Bootstrap.js' %}"></script>
+
+      
+    
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/Bootstrap/css/bootstrap.css' %}" />
+    <style type="text/css">
+
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+      
+      body
+        {
+        background-image:url('{% static 'images/woodMQ.jpg' %}');
+        background-repeat:repeat-x;
+        }
+
+      .form-signin {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 100px auto 50px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+
+    </style>
+    <link rel="stylesheet" href="{% static 'assets/Bootstrap/css/bootstrap-responsive.css' %}" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/Bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+    
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'assets/Bootstrap/ico/apple-touch-icon-144-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'assets/Bootstrap/ico/apple-touch-icon-114-precomposed.png' %}" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'assets/Bootstrap/ico/apple-touch-icon-72-precomposed.png' %}" />
+                    <link rel="apple-touch-icon-precomposed" href="{% static 'assets/Bootstrap/ico/apple-touch-icon-57-precomposed.png' %}" />
+                                   <link rel="shortcut icon" href="{% static 'assets/Bootstrap/ico/favicon.png' %}" />
+  
+  <!-- Google Analytics -->
+  
+  
+  </head>
+
+  <body>
+
+       <div class="container">
+       
+        
+      <form class="form-signin " action="{% url 'login'  %}" method = "post" >
+        <h4 class="form-signin-heading">Welcome to BD339 Security Solutions</h4>
+        {% csrf_token %}
+
+        
+        <div class="control-group">
+            
+            <div class="controls">
+              <input name="username" type="text" id="username" placeholder="Username">
+            </div>
+
+          <div class="control-group">
+           
+            <div class="controls">
+              <input name="password" type="password" id="password" placeholder="Password">
+            </div>
+
+          <button class="btn  btn-inverse" type="submit">Sign in</button>
+        
+      </form>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
+
